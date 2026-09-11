@@ -61,4 +61,19 @@ The KNN model was evaluated using a confusion matrix and classification report.
 * Classification Accuracy
 
 The confusion matrix was also visualized using Matplotlib to understand the model's correct and incorrect predictions for each Iris species.
+## Part 5: Decision Boundary Visualization
+
+The decision boundaries of the KNN classifier were visualized using two features: Petal Length and Petal Width.
+
+### Steps Performed
+
+* Selected two features for 2D visualization.
+* Normalized the selected features.
+* Trained a KNN classifier using the best K value.
+* Created a mesh grid for visualization.
+* Plotted the KNN decision boundaries and data points.
+
+### Result
+
+The visualization shows how KNN separates the different Iris species based on Petal Length and Petal Width.
 
