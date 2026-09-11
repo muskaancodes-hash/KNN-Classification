@@ -48,3 +48,17 @@ A K-Nearest Neighbors (KNN) classifier was implemented using Scikit-learn.
 ### Tool Used
 
 * Scikit-learn
+* ## Part 4: Model Evaluation
+
+The KNN model was evaluated using a confusion matrix and classification report.
+
+### Evaluation Methods
+
+* Confusion Matrix
+* Precision
+* Recall
+* F1-score
+* Classification Accuracy
+
+The confusion matrix was also visualized using Matplotlib to understand the model's correct and incorrect predictions for each Iris species.
+
