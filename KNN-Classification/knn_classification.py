@@ -1,5 +1,5 @@
 import pandas as pd
-
+import matplotlib.pyplot as plt
 # Load Iris dataset
 df = pd.read_csv("Iris.csv")
 
@@ -62,3 +62,32 @@ best_k = k_values[accuracies.index(max(accuracies))]
 
 print("\nBest K value:", best_k)
 print("Best Accuracy:", max(accuracies))
+from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+from sklearn.metrics import classification_report
+
+# Train the KNN model using the best K
+knn = KNeighborsClassifier(n_neighbors=best_k)
+knn.fit(X_train, y_train)
+
+# Make predictions
+y_pred = knn.predict(X_test)
+
+# Calculate confusion matrix
+cm = confusion_matrix(y_test, y_pred)
+
+print("\nConfusion Matrix:")
+print(cm)
+
+# Classification report
+print("\nClassification Report:")
+print(classification_report(y_test, y_pred))
+
+# Display confusion matrix
+disp = ConfusionMatrixDisplay(
+    confusion_matrix=cm,
+    display_labels=knn.classes_
+)
+
+disp.plot()
+plt.title("KNN Confusion Matrix")
+plt.show()
