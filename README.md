@@ -33,3 +33,18 @@ The four numerical features of the Iris dataset were selected for KNN classifica
 * Training samples: 120
 * Testing samples: 30
 * Number of features: 4
+## Part 3: KNN Classification
+
+A K-Nearest Neighbors (KNN) classifier was implemented using Scikit-learn.
+
+### Steps Performed
+
+* Tested different K values: 1, 3, 5, 7, 9, and 11.
+* Trained a KNN model for each K value.
+* Predicted the test data.
+* Calculated accuracy for each K.
+* Identified the K value with the highest accuracy.
+
+### Tool Used
+
+* Scikit-learn
