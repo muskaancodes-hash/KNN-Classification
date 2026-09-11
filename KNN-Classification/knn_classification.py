@@ -91,3 +91,45 @@ disp = ConfusionMatrixDisplay(
 disp.plot()
 plt.title("KNN Confusion Matrix")
 plt.show()
+import numpy as np
+
+# Select two features for decision boundary
+X_2d = df[["PetalLengthCm", "PetalWidthCm"]].values
+y_2d = pd.factorize(df["Species"])[0]
+
+# Normalize the two features
+scaler_2d = StandardScaler()
+X_2d = scaler_2d.fit_transform(X_2d)
+
+# Train KNN model
+knn_2d = KNeighborsClassifier(n_neighbors=best_k)
+knn_2d.fit(X_2d, y_2d)
+
+# Create mesh grid
+x_min, x_max = X_2d[:, 0].min() - 1, X_2d[:, 0].max() + 1
+y_min, y_max = X_2d[:, 1].min() - 1, X_2d[:, 1].max() + 1
+
+xx, yy = np.meshgrid(
+    np.arange(x_min, x_max, 0.02),
+    np.arange(y_min, y_max, 0.02)
+)
+
+# Predict classes for every point in the grid
+Z = knn_2d.predict(np.c_[xx.ravel(), yy.ravel()])
+Z = Z.reshape(xx.shape)
+
+# Plot decision boundary
+plt.figure(figsize=(8, 6))
+
+plt.contourf(xx, yy, Z, alpha=0.3)
+plt.scatter(
+    X_2d[:, 0],
+    X_2d[:, 1],
+    c=y_2d,
+    edgecolor="k"
+)
+
+plt.xlabel("Petal Length")
+plt.ylabel("Petal Width")
+plt.title("KNN Decision Boundary")
+plt.show()
